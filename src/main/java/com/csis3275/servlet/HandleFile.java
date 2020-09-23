@@ -102,6 +102,7 @@ public class HandleFile {
 			      
 			    bw.flush();
 			    System.out.println("CSV written successfully!");
+			    
 			    }
 			  catch (IOException e)
 			  {

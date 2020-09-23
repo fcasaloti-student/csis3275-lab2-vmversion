@@ -68,12 +68,11 @@ public class DownloadCSV extends HttpServlet {
 	            while ((bytesRead = inStream.read(buffer)) != -1) {
 	                outStream.write(buffer, 0, bytesRead);
 	            }
-	             
 	            inStream.close();
 	            outStream.close();     
-	            
-	            
-	        } finally {            
+	        }
+	        finally
+	        {            
 
 	        }
 	}

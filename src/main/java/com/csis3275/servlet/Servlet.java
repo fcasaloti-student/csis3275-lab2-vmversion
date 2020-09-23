@@ -93,7 +93,8 @@ public class Servlet extends HttpServlet {
  	            
             HandleFile newModel = new HandleFile(modelName, prosArr, consArr);
  
-	        } finally {            
+	        } finally 
+	        {            
 	            out.close();
 	        }
 	}

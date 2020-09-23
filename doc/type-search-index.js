@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.csis3275.servlet","l":"DownloadCSV"},{"p":"com.csis3275.servlet","l":"DownloadJSON"},{"p":"com.csis3275.servlet","l":"HandleFile"},{"p":"com.csis3275.servlet","l":"Servlet"}]

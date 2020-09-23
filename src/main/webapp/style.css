@@ -1,0 +1,26 @@
+.textAreaColumn{
+    width:100%;    
+}
+.textAreaColumn div{
+    float:left;
+    width:25%;
+    padding:4px;
+}
+
+.textAreaColumn div span{
+    display:block;
+    text-align:center;
+}
+
+.textAreaColumn div textarea{
+    width:100%;
+    min-height:150px;
+}
+
+table {
+	width: 100%;
+}
+
+body {
+	margin: 20px;
+}

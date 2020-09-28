@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -38,15 +38,18 @@ public class DownloadCSV extends HttpServlet {
 
 	        try {
 	           
-	        	// reads input file from an absolute path
+	        	//Defining an Absolute Path
 	            //String filePath = "C:\\Users\\fcasa\\eclipse-workspace\\main\\data.csv";
+	        	
+	        	//Defining a Relative Path on User Profile
 //				Path path = Paths.get(System.getProperty("user.home"), "data.csv");
 //				String filePath = path.toString();
 	        	
-				String path1 = this.getClass().getClassLoader().getResource("").getPath();
+	        	//Defining a Relative Path on Workspace
+				String path = this.getClass().getClassLoader().getResource("").getPath();
 				String fullPath = "";
 				try {
-					fullPath = URLDecoder.decode(path1, "UTF-8");
+					fullPath = URLDecoder.decode(path, "UTF-8");
 				} catch (UnsupportedEncodingException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

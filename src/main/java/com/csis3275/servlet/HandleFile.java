@@ -1,11 +1,11 @@
 package com.csis3275.servlet;
 import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import static java.nio.file.StandardOpenOption.APPEND;
+//import java.nio.charset.StandardCharsets;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
+//import java.util.ArrayList;
+//import java.util.List;
+//import static java.nio.file.StandardOpenOption.APPEND;
 import java.io.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -49,10 +49,12 @@ public class HandleFile {
 				newModel.put("Pros", pros);
 				newModel.put("Cons", cons);
 				
+				//Defining a Relative Path on User Profile
 				//Path path = Paths.get(System.getProperty("user.home"), "data.json");
 				//String filePath = path.toString();
 				//System.out.println(filePath);
 				
+				//Defining a Relative Path on the Workspace
 				String path1 = this.getClass().getClassLoader().getResource("").getPath();
 				String fullPath = "";
 				try {
@@ -65,8 +67,10 @@ public class HandleFile {
 				String filePath = pathArr[0];
 				System.out.println(filePath);
 				
+				//Defining an Absolute Path
 				//String filePath = "C:\\Users\\fcasa\\eclipse-workspace\\main\\data.json";
 				File file = new File(filePath, "data.json");
+				//If only used for appending existing files
 //				  if (!file.exists()) {
 //					System.out.println("File does not exist!");
 //				    return;
@@ -93,11 +97,15 @@ public class HandleFile {
 	//Method to write a CSV file
 		public void writingCSV() {
 
+			//Defining an Absolute Path
 			//String filePath = "C:\\Users\\fcasa\\eclipse-workspace\\main\\data.csv";
+			
+			//Defining a Relative Path on User Profile.
 //			Path path = Paths.get(System.getProperty("user.home"), "data.csv");
 //			String filePath = path.toString();
 //			System.out.println(filePath);
 			
+			//Defining a Relative Path on Workspace
 			String path1 = this.getClass().getClassLoader().getResource("").getPath();
 			String fullPath = "";
 			try {
@@ -110,6 +118,7 @@ public class HandleFile {
 			String filePath = pathArr[0];
 			
 			File file = new File(filePath, "data.csv");
+			//If only used for appending existing files
 //			  if (!file.exists()) {
 //				System.out.println("File does not exist!");
 //			    return;

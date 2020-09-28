@@ -5,7 +5,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
- 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,8 +39,22 @@ public class DownloadCSV extends HttpServlet {
 	        try {
 	           
 	        	// reads input file from an absolute path
-	            String filePath = "C:\\Users\\fcasa\\eclipse-workspace\\main\\data.csv";
-	            File downloadFile = new File(filePath);
+	            //String filePath = "C:\\Users\\fcasa\\eclipse-workspace\\main\\data.csv";
+//				Path path = Paths.get(System.getProperty("user.home"), "data.csv");
+//				String filePath = path.toString();
+	        	
+				String path1 = this.getClass().getClassLoader().getResource("").getPath();
+				String fullPath = "";
+				try {
+					fullPath = URLDecoder.decode(path1, "UTF-8");
+				} catch (UnsupportedEncodingException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				String pathArr[] = fullPath.split("/WEB-INF/classes/");
+				String filePath = pathArr[0];
+	        	
+	            File downloadFile = new File(filePath, "data.csv");
 	            FileInputStream inStream = new FileInputStream(downloadFile);
 
 	            // obtains ServletContext

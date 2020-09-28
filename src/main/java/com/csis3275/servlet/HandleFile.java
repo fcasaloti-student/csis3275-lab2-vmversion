@@ -1,6 +1,8 @@
 package com.csis3275.servlet;
-import java.io.BufferedWriter;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import static java.nio.file.StandardOpenOption.APPEND;
@@ -47,13 +49,31 @@ public class HandleFile {
 				newModel.put("Pros", pros);
 				newModel.put("Cons", cons);
 				
-				String filePath = "C:\\Users\\fcasa\\eclipse-workspace\\main\\data.json";
-				File file = new File(filePath);
-				  if (!file.exists()) {
-					System.out.println("File does not exist!");
-				    return;
-				  }
+				//Path path = Paths.get(System.getProperty("user.home"), "data.json");
+				//String filePath = path.toString();
+				//System.out.println(filePath);
+				
+				String path1 = this.getClass().getClassLoader().getResource("").getPath();
+				String fullPath = "";
+				try {
+					fullPath = URLDecoder.decode(path1, "UTF-8");
+				} catch (UnsupportedEncodingException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				String pathArr[] = fullPath.split("/WEB-INF/classes/");
+				String filePath = pathArr[0];
+				System.out.println(filePath);
+				
+				//String filePath = "C:\\Users\\fcasa\\eclipse-workspace\\main\\data.json";
+				File file = new File(filePath, "data.json");
+//				  if (!file.exists()) {
+//					System.out.println("File does not exist!");
+//				    return;
+//				  }
 				  try 
+
+				  
 				  	{
 					FileWriter writer = new FileWriter(file);
 				    BufferedWriter bw = new BufferedWriter(writer);
@@ -73,12 +93,27 @@ public class HandleFile {
 	//Method to write a CSV file
 		public void writingCSV() {
 
-			String filePath = "C:\\Users\\fcasa\\eclipse-workspace\\main\\data.csv";
-			File file = new File(filePath);
-			  if (!file.exists()) {
-				System.out.println("File does not exist!");
-			    return;
-			  }
+			//String filePath = "C:\\Users\\fcasa\\eclipse-workspace\\main\\data.csv";
+//			Path path = Paths.get(System.getProperty("user.home"), "data.csv");
+//			String filePath = path.toString();
+//			System.out.println(filePath);
+			
+			String path1 = this.getClass().getClassLoader().getResource("").getPath();
+			String fullPath = "";
+			try {
+				fullPath = URLDecoder.decode(path1, "UTF-8");
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			String pathArr[] = fullPath.split("/WEB-INF/classes/");
+			String filePath = pathArr[0];
+			
+			File file = new File(filePath, "data.csv");
+//			  if (!file.exists()) {
+//				System.out.println("File does not exist!");
+//			    return;
+//			  }
 			  try 
 			  	{
 				FileWriter writer = new FileWriter(file);
